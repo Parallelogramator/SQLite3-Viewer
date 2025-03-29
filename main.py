@@ -258,16 +258,11 @@ class DbViewer(QtWidgets.QMainWindow):
                     self.table_view.setModel(self.table_model)
 
     def reset_table(self):
-            # Сбрасываем представление таблицы до исходной модели таблицы
             self.initialize_db()
 
     def show_image(self, index):
         try:
             print(index.data())
-
-            # Получите данные из выбранной ячейки
-            # Если данные являются экземпляром QByteArray (что означает, что это изображение),
-            # откройте диалоговое окно с изображением
             if isinstance(index.data(), QtCore.QByteArray):
                 self.dialog = ImageDialog(index.data(), self)
                 self.dialog.show()
@@ -289,5 +284,4 @@ def main():
 
 
 if __name__ == "__main__":
-    # Если скрипт запущен как основная программа, вызываем функцию main()
     main()
